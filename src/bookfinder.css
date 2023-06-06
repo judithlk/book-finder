@@ -1,0 +1,63 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+    flex-direction: column;
+    width: 60vw;
+}
+
+form{
+    min-width: 40vw;
+    /* border: 2px solid red; */
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+form input {
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* padding: 1rem; */
+    padding-left: 0.8rem;
+    font-size: 1rem;
+    min-width: 230px;
+}
+
+input:focus {
+    outline: none;
+}
+
+form button {
+    border: none;
+    background-color: transparent;
+    /* color: rgb(16, 143, 58); */
+    font-size: 2rem;
+    padding: 0;
+    /* margin-left: 5%; */
+}
+
+.card-box {
+    /* height: 80vh; */
+}
+
+.title-display {
+    font-size: 1.1rem;
+}
+
+@media only screen and (min-width: 576px) {
+    .wrapper {
+        width: 80vw;
+    }
+
+    form input {
+        padding: 1rem;
+        font-size: 1rem;
+        min-width: 300px;
+    }
+
+    .title-display {
+        font-size: 1.2rem;
+    }
+}
