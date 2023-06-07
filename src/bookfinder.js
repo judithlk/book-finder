@@ -30,7 +30,7 @@ function BookFinder() {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${inputTerm}&key=${process.env.REACT_APP_GB_API_KEY}&maxResults=20`)
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${inputTerm}&key=${process.env.REACT_APP_GB_API_KEY}&maxResults=40`)
         
         .then(response => {
             setResult(response.data.items);
@@ -42,9 +42,9 @@ function BookFinder() {
     
     return (
         <div className="wrapper">
-            <form onSubmit={submitHandler} className="form-box d-flex justify-content-evenly">
+            <form onSubmit={submitHandler} className="form-box">
                 <input type="text" placeholder="Enter book title..." onChange={changeHandler}/>
-                <button type="submit" className="search-button ms-3">
+                <button type="submit" className="search-button">
                     <Search />
                 </button>
             </form>
@@ -52,7 +52,7 @@ function BookFinder() {
             <div className="container">
                 <div className="row result-box">
                     {result.map(inputTerm => (
-                        <div key={inputTerm.id} className="col-sm-4 col-lg-3 card-box">
+                        <div key={inputTerm.id} className="col-sm-4 col-lg-2 card-box">
                             <div className="image-display">
                                 <img src={inputTerm.volumeInfo.imageLinks !== undefined ? inputTerm.volumeInfo.imageLinks.thumbnail : ''} alt={inputTerm.volumeInfo.title + " cover"}/>
                             </div>

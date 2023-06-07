@@ -15,10 +15,16 @@ body {
 }
 
 form{
+    display: flex;
+    justify-content: center;
     min-width: 40vw;
     /* border: 2px solid red; */
     margin-top: 5vh;
     margin-bottom: 5vh;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    /* border: 1px solid green; */
 }
 
 form input {
@@ -26,8 +32,8 @@ form input {
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     /* padding: 1rem; */
-    padding-left: 0.8rem;
-    font-size: 1rem;
+    padding: 0.5rem;
+    font-size: 1.0rem;
     min-width: 230px;
 }
 
@@ -41,17 +47,24 @@ input::placeholder {
 
 form button {
     border: none;
-    background-color: transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #a1a1a1;
     /* color: rgb(16, 143, 58); */
-    font-size: 1.8rem;
-    padding: 0;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    padding-top: 0.2rem;
     /* margin-left: 5%; */
+}
+
+form button:hover {
+    background-color: lightgray;
 }
 
 .container {
     margin-top: 3%;
     background-color: white;
 }
+
 .card-box {
     display: flex;
     flex-direction: column;
@@ -103,7 +116,7 @@ form button {
 
     form input {
         padding: 1rem;
-        font-size: 1rem;
+        font-size: 1.1rem;
         min-width: 300px;
     }
 
