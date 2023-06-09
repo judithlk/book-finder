@@ -1,6 +1,7 @@
 body {
     /* border: 3px solid green; */
     background-color: cadetblue !important;
+    position: relative;
 }
 
 .wrapper {
@@ -12,6 +13,20 @@ body {
     flex-direction: column;
     width: 60vw;
     /* background-color: red; */
+}
+
+.site-header {
+    /* border: 2px solid red; */
+    text-align: center;
+    min-width: 94.5vw;
+    padding-top: 4%;
+    /* border: 2px solid black; */
+    position: sticky;
+    top: 0;
+}
+
+.site-header h2 {
+    font-size: 1.1rem;
 }
 
 form{
@@ -62,7 +77,14 @@ form button:hover {
 
 .container {
     margin-top: 3%;
-    background-color: white;
+    margin-bottom: 2%;
+    text-align: center;
+    /* background-color: white; */
+}
+
+.showing-result {
+    margin-bottom: 3%;
+    font-style: italic;
 }
 
 .card-box {
@@ -70,14 +92,17 @@ form button:hover {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    padding: 3.5%;
-    min-height: 50vh;
+    padding: 2%;
+    padding-left: 0;
+    padding-right: 0;
+    /* min-height: 50vh; */
     /* background-color: rgb(112, 102, 102); */
-    border: 1px solid darkslategrey;
+    /* border: 1px solid darkslategrey; */
+    margin-bottom: 5%;
 }
 
 .image-display {
-    margin-bottom: 4%;
+    margin-bottom: 5%;
 }
 
 .image-display img {
@@ -85,7 +110,8 @@ form button:hover {
 }
 
 .info-display {
-    height: 23%;
+    /* height: 23%; */
+    margin-bottom: 5%;
 }
 
 .title-display {
@@ -94,6 +120,13 @@ form button:hover {
 
 .author-display {
     font-size: 0.8rem;
+}
+
+.card-box:hover {
+    /* border: 1px solid darkslategray; */
+    background-color: grey;
+    opacity: 0.8;
+    border-radius: 10px;
 }
 
 .card-box button {
@@ -106,12 +139,42 @@ form button:hover {
 }
 
 .card-box button:hover {
+    background-color: gray;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.site-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* background-color: darkslategrey; */
+    text-align: right;
+    padding-right: 5%;
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.site-footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
 @media only screen and (min-width: 576px) {
     .wrapper {
         width: 80vw;
+    }
+
+    .site-header {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        min-width: 98.5vw;
+    }
+    .site-header h2 {
+        font-size: 1.8rem;
     }
 
     form input {
@@ -122,6 +185,10 @@ form button:hover {
 
     form button {
         font-size: 2rem;
+    }
+
+    .card-box {
+        margin-bottom: 1%;
     }
     
     .image-display img {
@@ -142,5 +209,6 @@ form button:hover {
 
     .card-box button {
         font-size: 0.8rem;
+        margin-bottom: 0;
     }
 }

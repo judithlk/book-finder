@@ -8,6 +8,7 @@ import { Search } from "react-bootstrap-icons";
 function BookFinder() {
     const [inputTerm, setInputTerm] = useState('');
     const [result, setResult] = useState([]);
+    const footerDate = new Date().getFullYear();
     let authorsNames = "";
     const changeHandler = (e) => {
         setInputTerm(e.target.value);
@@ -28,12 +29,25 @@ function BookFinder() {
         return authorsNames;
     } 
 
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 1) {
+            document.getElementById('site-header').style.backgroundColor = "darkslategray";
+            document.getElementById('site-header').style.opacity = "0.8";
+            document.getElementById('site-header').style.color = "white";
+        }else{
+            document.getElementById('site-header').style.backgroundColor = "transparent";
+            document.getElementById('site-header').style.opacity = "1";
+            document.getElementById('site-header').style.color = "black";
+        }
+    })
     const submitHandler = (e) => {
         e.preventDefault();
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=${inputTerm}&key=${process.env.REACT_APP_GB_API_KEY}&maxResults=40`)
         
         .then(response => {
             setResult(response.data.items);
+            let resLength = response.data.items.length;
+            document.getElementById('showing-result').innerHTML = 'Showing results for "' + inputTerm + '" (' + resLength + ' results)';
         })
         .catch(err => {
             console.log(err);
@@ -42,6 +56,9 @@ function BookFinder() {
     
     return (
         <div className="wrapper">
+            <div id="site-header" className="site-header">
+                <h2>T H E   B O O K   F I N D E R</h2>
+            </div>
             <form onSubmit={submitHandler} className="form-box">
                 <input type="text" placeholder="Enter book title..." onChange={changeHandler}/>
                 <button type="submit" className="search-button">
@@ -50,6 +67,7 @@ function BookFinder() {
             </form>
 
             <div className="container">
+                <p id="showing-result" className="showing-result"></p>
                 <div className="row result-box">
                     {result.map(inputTerm => (
                         <div key={inputTerm.id} className="col-sm-4 col-lg-2 card-box">
@@ -65,6 +83,9 @@ function BookFinder() {
                     ))}
                 </div>
             </div>
+            <footer className="site-footer">
+                <a href="https://github.com/judithlk" target="_blank" rel="noreferrer">Judith Yusuf</a>, <span>{footerDate}</span>
+            </footer>
         </div>
     )
 }
