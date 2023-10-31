@@ -1,7 +1,7 @@
 # T H E  B O O K  F I N D E R 
 A simple react book search app
 
-Live site - https: `//judithlk.github.io/book-finder/`
+Live site - https: https://judithlk.github.io/book-finder/
 
 ### APIs used:
 Google Books API (https://developers.google.com/books)
